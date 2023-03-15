@@ -11,10 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 mongoose
-  .connect("mongodb+srv://Bhargavpatelnt:Patel@123@cluster0.n4ctsyb.mongodb.net/YDS/ydsform", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://Bhargavpatelnt:Patel@123@cluster0.n4ctsyb.mongodb.net/YDS/ydsform",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -23,25 +26,79 @@ mongoose
   });
 
 const Schema = mongoose.Schema;
-const mySchema = new Schema({
-  name: String,
-  email: String,
-  campus: String,
-  course:String,
-  address: String
-  phone: String,
-  birthdate: Date,
-  indianaddress: String,
-  statusincanada: String
+const ydsform = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
 
+  email: {
+    type: String,
+    required: true,
+  },
+
+  campus: {
+    type: String,
+    required: true,
+  },
+
+  course: {
+    type: String,
+    required: true,
+  },
+
+  address: {
+    type: String,
+    required: true,
+  },
+
+  phone: {
+    type: Number,
+    required: true,
+  },
+
+  birthdate: {
+    type: String,
+    required: true,
+  },
+
+  indianaddress: {
+    type: String,
+    required: true,
+  },
+
+  statusincanada: {
+    type: String,
+    required: true,
+  },
 });
 
-const MyModel = mongoose.model("MyModel", mySchema);
+const Yds = mongoose.model("Yds", ydsform);
 
 app.post("/api/submit", (req, res) => {
-  const { name, email, campus,course, address, phone, birthdate, indianaddress, statusincanada } = req.body;
+  const {
+    name,
+    email,
+    campus,
+    course,
+    address,
+    phone,
+    birthdate,
+    indianaddress,
+    statusincanada,
+  } = req.body;
 
-  const data = new MyModel({ name, email, campus, course, address, phone, birthdate, indianaddress, statusincanada});
+  const data = new MyModel({
+    name,
+    email,
+    campus,
+    course,
+    address,
+    phone,
+    birthdate,
+    indianaddress,
+    statusincanada,
+  });
 
   data
     .save()
