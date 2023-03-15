@@ -88,7 +88,7 @@ app.post("/api/submit", (req, res) => {
     statusincanada,
   } = req.body;
 
-  const data = new MyModel({
+  const data = new Yds({
     name,
     email,
     campus,

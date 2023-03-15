@@ -2,25 +2,74 @@
   background-color: #fcfcfd;
   display: flex;
   align-items: center;
-  height: 20vh;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 15vh;
 }
 
 .App-logo {
-  height: 200px;
-  width: 200px;
-  margin-right: 50px;
+  height: 10vw;
+  width: 10vw;
+  margin-right: 5%;
   animation: myAnim 4s ease 0s infinite normal forwards;
 }
 
 .App-title {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: bold;
   color: rgb(245, 193, 53);
   text-align: center;
   animation: title 10s ease 1s infinite normal both;
 }
+
+@media only screen and (min-width: 768px) {
+  .App-header {
+    height: 10vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-between;
+  }
+
+  .App-logo {
+    height: 8vw;
+    width: 8vw;
+    margin-right: 0;
+    margin-left: 5%;
+    animation: none;
+  }
+
+  .App-title {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .App-logo,
+  .App-title {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .App-header {
+    height: 8vh;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .App-logo {
+    height: 6vw;
+    width: 6vw;
+    margin-left: 0;
+  }
+
+  .App-title {
+    font-size: 3rem;
+    text-align: left;
+  }
+}
+
 @keyframes myAnim {
   0%,
   100% {
@@ -29,23 +78,23 @@
   }
 
   15% {
-    transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-5%) rotate(-6deg);
   }
 
   30% {
-    transform: translateX(15px) rotate(6deg);
+    transform: translateX(2.5%) rotate(6deg);
   }
 
   45% {
-    transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-2.5%) rotate(-3.6deg);
   }
 
   60% {
-    transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(1.5%) rotate(2.4deg);
   }
 
   75% {
-    transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-1%) rotate(-1.2deg);
   }
 }
 
